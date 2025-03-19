@@ -3,6 +3,15 @@ package com.pm.PatientService.dto;
 public class PatientResponseDTO {
     private String Id;
     private String name;
+
+    public PatientResponseDTO(String id, String name, String email, String address, String dateOfBirth) {
+        Id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     private String email;
     private String address;
     private String dateOfBirth;
