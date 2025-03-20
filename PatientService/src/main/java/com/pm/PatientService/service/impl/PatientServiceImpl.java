@@ -4,12 +4,13 @@ import com.pm.PatientService.dto.PatientResponseDTO;
 import com.pm.PatientService.mapper.PatientMapper;
 import com.pm.PatientService.model.Patient;
 import com.pm.PatientService.repository.PatientRepository;
+import com.pm.PatientService.service.PatientService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PatientServiceImpl {
+public class PatientServiceImpl implements PatientService {
     private final PatientRepository patientRepository;
 
     public PatientServiceImpl(PatientRepository patientRepository) {
