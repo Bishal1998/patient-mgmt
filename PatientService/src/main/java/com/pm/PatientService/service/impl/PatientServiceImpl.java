@@ -1,5 +1,6 @@
 package com.pm.PatientService.service.impl;
 
+import com.pm.PatientService.dto.PatientRequestDTO;
 import com.pm.PatientService.dto.PatientResponseDTO;
 import com.pm.PatientService.mapper.PatientMapper;
 import com.pm.PatientService.model.Patient;
@@ -21,5 +22,12 @@ public class PatientServiceImpl implements PatientService {
         List<Patient> patients = patientRepository.findAll();
 
         return patients.stream().map(PatientMapper::mapToPatientDto).toList();
+    }
+
+    @Override
+    public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO) {
+        Patient newPatient = patientRepository.save(PatientMapper.mapToPatient(patientRequestDTO));
+
+        return PatientMapper.mapToPatientDto(newPatient);
     }
 }
